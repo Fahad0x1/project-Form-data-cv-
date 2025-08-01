@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, send_from_directory
+from flask import Flask, render_template, request, redirect, send_from_directory, session, url_for, flash
 import pandas as pd
 import os
 from werkzeug.utils import secure_filename
+app = Flask(__name__)
+app.secret_key = 'Fahad@Ksa'  # يمكنك تغييره لاحقًا
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
