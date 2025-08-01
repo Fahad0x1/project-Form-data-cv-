@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل البيانات</title>
+</head>
+<body>
+    <h2>نموذج التسجيل</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <label>الاسم:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>المسمى الوظيفي:</label><br>
+        <input type="text" name="job_title" required><br><br>
+
+        <label>السيرة الذاتية:</label><br>
+        <input type="file" name="cv"><br><br>
+
+        <button type="submit">إرسال</button>
+    </form>
+
+    <br>
+    <a href="/table">عرض الجدول</a>
+</body>
+</html>

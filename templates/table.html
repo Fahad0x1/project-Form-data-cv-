@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>جدول المتقدمين</title>
+</head>
+<body>
+    <h2>قائمة المتقدمين</h2>
+    <table border="1">
+        <tr>
+            <th>الاسم</th>
+            <th>المسمى الوظيفي</th>
+            <th>السيرة الذاتية</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row['الاسم'] }}</td>
+            <td>{{ row['المسمى الوظيفي'] }}</td>
+            <td>
+                {% if row['ملف السيرة الذاتية'] %}
+                    <a href="/uploads/{{ row['ملف السيرة الذاتية'] }}">تحميل</a>
+                {% else %}
+                    لا يوجد
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
