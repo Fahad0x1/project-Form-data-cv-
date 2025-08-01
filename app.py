@@ -35,10 +35,25 @@ def index():
 
     return render_template('form.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        password = request.form.get('password')
+        if password == "Fahad@123":
+            session['logged_in'] = True
+            return redirect(url_for('show_table'))
+        else:
+            flash("كلمة المرور خاطئة", "error")
+    return render_template('login.html')
+    
 @app.route('/table')
 def show_table():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    
     df = pd.read_excel(EXCEL_FILE)
     return render_template('table.html', data=df.to_dict(orient='records'))
+
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
